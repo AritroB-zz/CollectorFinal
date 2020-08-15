@@ -37,16 +37,12 @@ class CreateCollectableViewController: UIViewController, UIImagePickerController
     }
     @IBAction func addTapped(_ sender: Any) {
         
-        if let context = (UIApplication.shared.delegate
-            as?
-            AppDelegate)?.persistentContainer.viewContext
-            {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             let collectable = Collectable(context: context)
-                collectable.title = titleTextField.text
-                collectable.image = imageView.image?.jpegData(compressionQuality: 1.0)
-                (UIApplication.shared.delegate as?
-                    AppDelegate)?.saveContext()
-         }
+            collectable.title = titleTextField.text
+            collectable.image = imageView.image?.jpegData(compressionQuality: 1.0)
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
         
         navigationController?.popViewController(animated: true)
     }
